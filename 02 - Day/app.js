@@ -8,7 +8,7 @@ function facebook() {
         window.location.href = "https://www.facebook.com"
     }
 }
-function instagram() {
+function github() {
     if(confirm("Are you sure open GitHub?")){
         window.location.href = "https://www.github.com"
     }
