@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.left-up{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 0px 10px;
+    gap: 10px;
+}
+#name{
+    font-size: 18px;
+    font-weight: 800;
+}
+#online{
+    color: #00f625;
+    font-size: 10px;
+    position: relative;
+    right: 65px;
+    top: 15px;
+}
+.right-up{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 30px;
+    padding: 0px 10px;
+}
+.chat-app{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial;
+}
+
+.chat-header, .chat-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #075e54;
+    color: white;
+}
+
+.chat-box{
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background: #ece5dd;
+}
+
+.message{
+    padding: 8px 12px;
+    margin: 5px 0;
+    border-radius: 10px;
+    max-width: 70%;
+}
+
+.sent{
+    background: #dcf8c6;
+    margin-left: auto;
+    text-align: end;
+}
+
+.received{
+    background: white;
+}
+
+input{
+    padding: 5px;
+    width: 80%;
+    border-radius: 10px;
+    border: none;
+}
+
+.profile-pic{
+    background: url(Ankit.png);
+    background-position: center;
+    background-size:contain;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 10px;
+    border: 2px solid white;
+}
