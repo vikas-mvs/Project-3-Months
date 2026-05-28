@@ -51,6 +51,9 @@ transition: 0.2s;
 .delete:hover{
         box-shadow: 0 0 20px rgba(113, 113, 113, 0.813);
 }
+.operator{
+    font-weight: bolder;
+}
 .operator:hover{
         box-shadow: 0 0 20px rgba(255, 243, 107, 0.513);
 }
@@ -84,4 +87,9 @@ button:active {
 .delete {
     background: #6c757d;
     color: white;
+}
+p{
+    position: relative;
+    bottom: 7px;
+    font-weight: bold;
 }

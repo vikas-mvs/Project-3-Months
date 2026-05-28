@@ -9,6 +9,7 @@
     flex-direction: row;
     padding: 0px 10px;
     gap: 10px;
+    font-size: 20px;
 }
 #name{
     font-size: 18px;
@@ -27,6 +28,7 @@
     flex-direction: row;
     gap: 30px;
     padding: 0px 10px;
+    font-size: 20px;
 }
 .chat-app{
     height: 100vh;
@@ -42,6 +44,7 @@
     padding: 10px;
     background: #075e54;
     color: white;
+    font-size: 17px;
 }
 
 .chat-box{
