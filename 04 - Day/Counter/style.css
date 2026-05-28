@@ -44,3 +44,9 @@ span{
         transform:translate(-50%,-50%);
         animation:fade 0.6s ease-out forwards;
     }
+    button{
+        padding: 5px 8px;
+        border-radius: 5px;
+        border: none;
+        font-size: 20px;
+    }
