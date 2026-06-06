@@ -1,0 +1,406 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    --accent: #7cf7c4;
+    --accent-soft: rgba(124, 247, 196, 0.16);
+    --accent-border: rgba(124, 247, 196, 0.32);
+    background:
+        radial-gradient(circle at top left, rgba(124, 247, 196, 0.2), transparent 32%),
+        linear-gradient(135deg, #111827, #172554 48%, #0f172a);
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    transition: background 0.4s ease;
+}
+
+body.running{
+    background:
+        radial-gradient(circle at top left, var(--accent-soft), transparent 34%),
+        linear-gradient(135deg, #052e2b, #1e3a5f 54%, #111827);
+}
+
+body.finished{
+    background:
+        radial-gradient(circle at top left, rgba(255, 201, 71, 0.24), transparent 34%),
+        linear-gradient(135deg, #3b1d1d, #312e81 54%, #111827);
+}
+
+#ambient{
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+#ambient span{
+    position: absolute;
+    width: 120px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px solid var(--accent-border);
+    opacity: 0.22;
+    animation: drift 12s ease-in-out infinite alternate;
+}
+
+#ambient span:nth-child(1){
+    left: 10%;
+    top: 16%;
+}
+
+#ambient span:nth-child(2){
+    right: 12%;
+    top: 24%;
+    animation-delay: 2s;
+}
+
+#ambient span:nth-child(3){
+    left: 28%;
+    bottom: 8%;
+    animation-delay: 4s;
+}
+
+@keyframes drift {
+    from {
+        transform: translateY(0) scale(1);
+    }
+
+    to {
+        transform: translateY(-28px) scale(1.14);
+    }
+}
+
+#main{
+    background-color: rgba(15, 23, 42, 0.72);
+    width: 390px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(18px);
+    position: relative;
+    z-index: 1;
+}
+
+#header{
+    padding: 8px 20px 0px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+#brand{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+#logo{
+    width: 58px;
+    height: 58px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 0 24px var(--accent-soft);
+    background-color: #000;
+    flex-shrink: 0;
+}
+
+#eyebrow{
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0px;
+}
+
+#header h1{
+    font-size: 32px;
+    margin-top: 4px;
+    white-space: nowrap;
+}
+
+#scoreBadge{
+    background-color: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    border-radius: 14px;
+    min-width: 68px;
+    padding: 9px 10px;
+    text-align: center;
+}
+
+#scoreValue{
+    display: block;
+    color: var(--accent);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#scoreBadge small{
+    color: rgba(255, 255, 255, 0.64);
+    font-size: 11px;
+}
+
+#input{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+}
+#input * {
+    padding: 8px;
+    font-size: 15px;
+}
+
+input{
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 8px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+input::placeholder{
+    color: rgba(255, 255, 255, 0.65);
+}
+
+#presetTimes{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 0;
+}
+
+#presetTimes button{
+    background-color: rgba(255, 255, 255, 0.12);
+    color: white;
+    padding: 9px;
+}
+
+#logic-btn {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+#timerActionBtn {
+    background-color: var(--accent);
+    padding: 10px 14px;
+}
+
+body.alarm-on #logic-btn {
+    grid-template-columns: 1fr 1fr 1.2fr;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+#stopAlarmBtn{
+    background-color: #ff4778;
+    display: none;
+    padding: 10px 12px;
+}
+#cancelBtn{
+    background-color: #ffbd59;
+    padding: 10px 14px;
+}
+
+button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22);
+}
+
+#clock{
+    background-color: rgba(255, 255, 255, 0.08);
+    margin: 20px;
+    padding: 18px;
+    text-align: center;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+#statusChip{
+    background-color: var(--accent-soft);
+    color: var(--accent);
+    border: 1px solid var(--accent-border);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 6px 14px;
+}
+
+#tasktitle{
+    color: white;
+    font-size: 20px;
+    min-height: 26px;
+    max-width: 260px;
+    overflow-wrap: anywhere;
+}
+
+#timerRing{
+    width: 190px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: conic-gradient(var(--accent) 0deg, rgba(255, 255, 255, 0.1) 0deg);
+    padding: 10px;
+    transition: background 1s linear;
+}
+
+#timerFace{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: rgba(15, 23, 42, 0.94);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+#timer {
+    color: white;
+    font-size: 44px;
+    font-weight: bold;
+}
+
+#focusLine{
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 12px;
+    max-width: 130px;
+}
+
+#progressContainer {
+    width: 100%;
+    height: 13px;
+    background: #334155;
+    border-radius: 10px;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+#progressBar {
+    height: 100%;
+    width: 0%;
+    background: #ff4271;
+    transition: width 1s linear;
+
+}
+
+#sessionStats{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 16px;
+}
+
+#sessionStats div{
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 12px 8px;
+    text-align: center;
+}
+
+#sessionStats span{
+    display: block;
+    color: var(--accent);
+    font-size: 21px;
+    font-weight: bold;
+}
+
+#sessionStats small{
+    color: rgba(255, 255, 255, 0.64);
+    font-size: 11px;
+}
+
+#celebration{
+    position: fixed;
+    left: 50%;
+    bottom: 28px;
+    transform: translate(-50%, 20px);
+    opacity: 0;
+    pointer-events: none;
+    background-color: rgba(15, 23, 42, 0.92);
+    border: 1px solid var(--accent-border);
+    border-radius: 14px;
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.36);
+    color: white;
+    padding: 14px 18px;
+    min-width: 240px;
+    text-align: center;
+    z-index: 3;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+#celebration strong{
+    display: block;
+    color: var(--accent);
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+#celebration span{
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 13px;
+}
+
+#celebration.show{
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+@media (max-width: 430px) {
+    body{
+        height: auto;
+        min-height: 100vh;
+        padding: 16px 0;
+    }
+
+    #main{
+        width: 92vw;
+        padding: 16px;
+    }
+
+    #logic-btn{
+        grid-template-columns: 1fr;
+    }
+
+    #timerRing{
+        width: 170px;
+    }
+
+    #timer{
+        font-size: 38px;
+    }
+
+    #header h1{
+        font-size: 26px;
+    }
+
+    #logo{
+        width: 48px;
+        height: 48px;
+        border-radius: 13px;
+    }
+}
