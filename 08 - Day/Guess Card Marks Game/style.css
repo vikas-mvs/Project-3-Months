@@ -61,9 +61,10 @@ button:hover{
 }
 
 .card.active-card {
-    transform: scale(0.95);
+    transform: scale(1.1);
     background-color: rgb(255, 110, 202);
-    color: black;
+    box-shadow: 0 0 10px rgba(255, 110, 202, 0.8);
+    border: none;
 }
 .card{
     width: 80px;
@@ -81,8 +82,9 @@ button:hover{
     text-align: center;
 }
 .card:hover{
-    transform: scale(1.05);
+    transform: scale(1.1);
     border: none;
+    box-shadow: 0 0 10px rgba(255, 110, 202, 0.8);
 }
 #score-point{
     font-size: 25px;
