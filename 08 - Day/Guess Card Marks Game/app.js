@@ -9,15 +9,25 @@ const coinText = document.getElementById("coins");
 const resultText = document.querySelector(".result");
 const actionBtn = document.getElementById("actionBtn");
 const cards = document.querySelectorAll(".card");
+const clickSound = new Audio("clickSound.mp3");
+const alertSound = new Audio("alert.mp3");
+const winSound = new Audio("winner.mp3");
+const loseSound = new Audio("loser.mp3");
+const warningSound = new Audio("warning.mp3");
 
 function playGame() {
     if (coins < 10) {
-        alert("❌ Not enough coins!");
+        resultText.innerText = "❌ Not enough coins!";
+        alertSound.currentTime = 0;
+        alertSound.play();
         return;
     }
 
     coins -= 10;
     updateCoins();
+
+    clickSound.currentTime = 0;
+    clickSound.play();
 
     isGameStarted = true;
     score = 0;
@@ -26,6 +36,13 @@ function playGame() {
     resultText.innerText = " ";
 
     updateScore();
+
+if (coins <= 20) {
+    resultText.innerText = "Warning: Your coins are low!";
+    resultText.style.fontWeight = "bold";
+    alertSound.currentTime = 0;
+    alertSound.play();
+}
 
     // Game start hote hi saare cards me pehle se number set karna
     cards.forEach((card) => {
@@ -41,11 +58,15 @@ function playGame() {
 // 🎯 Card Click
 function changeColor(card) {
     if (!isGameStarted) {
-        alert("Pehle game start karo!");
+        resultText.innerText = "❌ Please start the game first!";
+        warningSound.currentTime = 0;
+        warningSound.play(); 
         return;
     }
 
     let activeCards = document.querySelectorAll(".card.active-card");
+    clickSound.currentTime = 0;
+    clickSound.play();
     let points = parseInt(card.getAttribute("data-points")) || 0;
 
     // Agar card pehle se selected hai to deselect karo
@@ -64,6 +85,9 @@ function changeColor(card) {
 
     // Card select hone par
     card.classList.add("active-card");
+
+    clickSound.currentTime = 0;
+    clickSound.play();
     
     // Ab wahi pehle se save kiya hua number dikhega aur add hoga
     card.innerText = points;
@@ -81,11 +105,15 @@ function changeColor(card) {
         setTimeout(() => {
             if (score >= targetScore) {
                 resultText.innerText = "🎉 You Won! +" + 20 + " coins";
-                alert("🎉 Congratulations! You won 20 coins!");
+                winSound.currentTime = 0;
+                winSound.play();
+                // alert("🎉 Congratulations! You won 20 coins!");
                 coins += 20;
             } else {
                 resultText.innerText = "😢 You Lost!"; 
-                alert("😢 Better luck next time!");
+                loseSound.currentTime = 0;
+                loseSound.play();
+                // alert("😢 Better luck next time!");
             }
 
             updateCoins();

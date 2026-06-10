@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Random Joke 😂</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Random Joke 😂</h1>
+        <p id="joke">Click below to get a joke!</p>
+        <button onclick="getJoke()">Next Joke</button>
+    </div>
+    <script>
+        const sounds = [
+            "laugh.mp3",
+            "laugh1.mp3",
+            "laugh2.mp3",
+            "laugh3.mp3",
+            "laugh4.mp3",
+            "laugh5.mp3",
+            "laugh6.mp3",
+        ];
+        let currentSound;
+        let timeoutId;
+        async function getJoke() {
+            const jokeText = document.getElementById("joke");
+            clearTimeout(timeoutId);
+            if (currentSound) {
+                currentSound.pause();
+                currentSound.currentTime = 0;
+            }
+            jokeText.innerText = "Loading... 😂";
+            try {
+                const res = await fetch(
+                    "https://official-joke-api.appspot.com/random_joke",
+                );
+                const data = await res.json();
+                jokeText.innerText = data.setup + " 🤔";
+                timeoutId = setTimeout(() => {
+                    jokeText.innerText += "\n\n" + data.punchline + " 😂";
+                    const randomIndex = Math.floor(Math.random() * sounds.length);
+                    currentSound = new Audio(sounds[randomIndex]);
+                    currentSound.volume = 0.6;
+                    currentSound.play();
+                }, 2000);
+            } catch (error) {
+                jokeText.innerText = "Oops! Failed to load joke 😢";
+            }
+        }
+    </script>
+</body>
+
+</html>
