@@ -1,0 +1,77 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+#main {
+    background-color: white;
+    text-align: center;
+    background: white;
+}
+
+#main h1 {
+    background: linear-gradient(to right, #e52d27, #b31217);
+    padding: 10px;
+    color: white;
+}
+
+#main iframe {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1100px;
+    aspect-ratio: 16/9;
+    border: 2px solid rgba(210, 208, 208, 0.822);
+    box-shadow: 0 0 8px rgb(104, 104, 104);
+    border-radius: 10px;
+
+}
+
+#control * {
+    padding: 10px;
+    margin-bottom: 15px;
+    transition: box-shadowbox-shadow 0.5s ease;
+}
+
+#control input {
+    width: 40%;
+    max-width: 500px;
+    margin: 5px;
+    border-radius: 20px;
+    border: 1px solid gray;
+}
+
+#control button{
+    border-radius: 20px;
+    border: 1px solid gray;
+    padding: 10px 15px;
+}
+
+#playbtn:hover{
+    box-shadow: 0 0 5px gray;
+}
+#linktext:hover{
+    box-shadow: 0 0 8px 1px rgb(255, 221, 0);
+}
+
+#sharebtn{
+    margin-top: 20px;
+    border-radius: 20px;
+    border: 1px solid gray;
+    padding: 13px 18px;
+    transition: 0.5s ease-in-out;
+    border: none;
+    background-color: lightgray;
+    font-weight: 800;
+}
+
+#sharebtn:hover{
+    background-color: rgb(0, 221, 0);
+    box-shadow: 0 0 20px 2px lightgreen;
+}
