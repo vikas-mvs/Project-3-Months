@@ -1,0 +1,60 @@
+body{
+    height: 100vh;
+    display: grid;
+    place-content: center;
+    background: linear-gradient(145deg, red,orange,yellow,green,blue,indigo,violet);
+    overflow: hidden;
+}
+
+.container{
+    display: grid;
+    gap: 40px;
+}
+
+button{
+    width: 200px;
+    height: 60px;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    font-size: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    transition: all 1s ease;
+}
+
+button{
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%{ transform: translateY(0px); }
+    50%{ transform: translateY(-15px); }
+    100%{ transform: translateY(0px); }
+}
+
+#facebook{
+    animation-delay: 0.5s;
+}
+#github{
+    animation-delay: 1s;
+}
+
+button:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 20px white;
+}
+
+#google:hover{
+    box-shadow: 0 0 20px red, 0 0 40px red;
+}
+#facebook:hover{
+    box-shadow: 0 0 20px blue, 0 0 40px blue;
+}
+#github:hover{
+    box-shadow: 0 0 20px rgb(0, 0, 0), 0 0 40px rgb(0, 0, 0);
+}

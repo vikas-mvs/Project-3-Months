@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Task - Timer app</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="ambient">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div id="main">
+            <div id="header">
+                <div id="brand">
+                    <img id="logo" src="logo.png" alt="AXL CodeX logo">
+                    <div>
+                        <p id="eyebrow">AXL CodeX</p>
+                        <h1>Task Timer</h1>
+                    </div>
+                </div>
+                <div id="scoreBadge">
+                    <span id="scoreValue">0</span>
+                    <small>score</small>
+                </div>
+            </div>
+            <div id="input">
+                <input id="task" type="text" placeholder="Plan the task...">
+                <input id="time" type="text" placeholder="No. of minutes">
+                <div id="presetTimes">
+                    <button data-minutes="5">5m</button>
+                    <button data-minutes="15">15m</button>
+                    <button data-minutes="25">25m</button>
+                </div>
+                <div id="logic-btn">
+                    <button id="cancelBtn">Cancel</button>
+                    <button id="timerActionBtn">Start</button>
+                    <button id="stopAlarmBtn">Stop Alarm</button>
+                </div>
+            </div>
+
+            <div id="clock">
+                <div id="statusChip">Ready</div>
+                <h2 id="tasktitle">- No Task -</h2>
+                <div id="timerRing">
+                    <div id="timerFace">
+                        <span id="timer">00:00</span>
+                        <small id="focusLine">Pick a task and start.</small>
+                    </div>
+                </div>
+            </div>
+            <div id="progressContainer">
+                <div id="progressBar"></div>
+            </div>
+            <div id="sessionStats">
+                <div>
+                    <span id="completedCount">0</span>
+                    <small>Done</small>
+                </div>
+                <div>
+                    <span id="focusedMinutes">0</span>
+                    <small>Minutes</small>
+                </div>
+            </div>
+        </div>
+        <div id="celebration">
+            <strong>Complete Task</strong>
+            <span id="celebrationText">Nice finish.</span>
+        </div>
+        <audio id="alarmSound" src="alarm.wav"></audio>
+    <script src="app.js"></script>
+</body>
+</html>

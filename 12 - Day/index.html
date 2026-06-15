@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pop / model</title>
+</head>
+<body>
+    <div class="container">
+        <div class="back">
+            <button id="setting" onclick="setting()">Setting</button>
+            <div id="modalWrapper" class="front" style="display: none;">
+                <div class="modal-content">
+                    <h3>Setting Menu</h3>
+                    <button id="cancel" onclick="cancel()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+          // Select the modal element
+        const modal = document.getElementById("modalWrapper");
+
+        // Function to display the modal
+        function setting() {
+            modal.style.display = "flex";
+        }
+
+        // Function to hide the modal
+        function cancel() {
+            modal.style.display = "none";
+        }
+
+        // Optional: Close modal if user clicks outside the modal content box
+        // window.onclick = function(event) {
+        //     if (event.target === modal) {
+        //         cancel();
+        //     }
+        // }
+    </script>
+</body>
+</html>

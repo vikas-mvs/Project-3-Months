@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    background-color: aqua;
+    display: grid;
+    place-content: center;
+    height: 100vh;
+}
+.back{
+    height: 700px;
+    width: 600px;
+    background-color: rgb(68, 152, 255);
+    border-radius: 10px;
+    text-align: end;
+}
+.front{
+    height: 70%;
+    width: 50%;
+    background-color: rgb(255, 255, 68);
+    border-radius: 10px;
+    margin: auto;
+}
+button{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    transition: 1s;
+}
+#setting:hover{
+    background-color: green;
+    color: white;
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgb(89, 255, 0);
+}
+#cancel:hover{
+    background-color: rgb(240, 13, 13);
+    color: white;
+    transform: scale(1.2);
+    box-shadow: 0 0 10px red;
+}

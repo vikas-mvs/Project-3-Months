@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google</title>
+    <link rel="icon" href="logo.jpg" type="icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="left-nav">
+            <a href="#">About</a>
+            <a href="#">Store</a>
+        </div>
+        <div class="right-nav">
+            <a href="#">Gmail</a>
+            <a href="#">Image</a>
+            <i class="fa-solid fa-flask"></i>
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-user" id="user"></i>
+        </div>
+    </header>
+    <div class="container">
+    <div class="search-bar">
+        <div class="google-img"></div>
+        <div class="input-box">
+            <input type="text" id="search">
+            <i class="fa-solid fa-microphone"></i>
+            <button class="search-btn" onclick="searchGoogle()">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+        <div class="buttons">
+            <button onclick="searchGoogle()">Google Search</button>
+            <button onclick="luckySearch()">I'm Feeling Lucky</button>
+        </div>
+    </div>
+</div>
+    <span>India</span>
+    <hr>
+    <footer>
+        <div class="left-foot">
+            <a href="#">Advertising</a>
+            <a href="#">Business</a>
+            <a href="#">How Search works</a>
+        </div>
+        <div class="right-foot">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Settings</a>
+        </div>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>
