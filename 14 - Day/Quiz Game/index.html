@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Now</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="welcome">
+            <h1>Data Structures</h1>
+            <p id="question">5 Questions</p>
+            <button id="start" onclick="start() ">Start now</button>
+        </div>
+        <div id="option">
+    <h2 id="question-text">Question loading...</h2> 
+    
+    <p class="quiz-ans" onclick="checkAnswer('a')">(a) <span id="op1"></span></p>
+    <p class="quiz-ans" onclick="checkAnswer('b')">(b) <span id="op2"></span></p>
+    <p class="quiz-ans" onclick="checkAnswer('c')">(c) <span id="op3"></span></p>
+    <p class="quiz-ans" onclick="checkAnswer('d')">(d) <span id="op4"></span></p>
+
+    <div class="nav-buttons">
+        <button id="prev-btn" onclick="prevQuestion()">Previous</button>
+        <button id="next-btn" onclick="nextQuestion()">Next</button>
+    </div>
+</div>
+
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
+

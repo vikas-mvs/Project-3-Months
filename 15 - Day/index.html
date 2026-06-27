@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+
+        <div id="inputscreen">
+            <input id="num" type="text" placeholder="Type a number..">
+            <button id="genbtn" onclick="generate()">Generate Table</button>
+        </div>
+
+        <div id="outputscreen">
+            <h3 id="tabletitle"></h3>
+            <ul id="tablelist">
+            </ul>
+            <button id="genbtn" onclick="back()">Go Back</button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
